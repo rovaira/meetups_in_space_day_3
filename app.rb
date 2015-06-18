@@ -43,7 +43,7 @@ def successful_meetup
 end
 
 def form_error
-  flash[:notice] = 'Make sure to fill in all the fields!'
+  flash[:notice] = 'Make sure to fill in ALL the fields CORRECTLY!'
   redirect '/create'
 end
 

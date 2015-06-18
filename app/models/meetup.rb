@@ -4,6 +4,6 @@ class Meetup < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true, length: { maximum: 95 }
   validates :description, presence: true, length: { maximum: 255 }
-  validates :location, presence: true, format: { with: /*,../ }
+  validates :location, presence: true, format: { with: /[a-zA-Z]*,\s[A-Z][A-Z]/ }
 
 end

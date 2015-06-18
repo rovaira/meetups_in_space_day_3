@@ -4,17 +4,17 @@
 <form action="/" method="post">
   <div>
     <label for="name">Name:</label>
-    <input type="text" id="name" name="meetup[name]" value="<%= new_meetup.name %>" required>
+    <input type="text" id="name" name="meetup[name]" value="<%= new_meetup.name %>" placeholder="max 95 characters" required>
   </div>
 
   <div>
     <label for="description">Description:</label>
-    <input type="text" id="description" name="meetup[description]" value="<%= new_meetup.description %>" required>
+    <input type="text" id="description" name="meetup[description]" value="<%= new_meetup.description %>" placeholder="max 255 characters" required>
   </div>
 
   <div>
     <label for="location">Location:</label>
-    <input type="text" id="location" name="meetup[location]" value="<%= new_meetup.location %>" required>
+    <input type="text" id="location" name="meetup[location]" value="<%= new_meetup.location %>" placeholder="Boston, MA" required>
   </div>
 
   <input type="submit" value="Add Meetup">
