@@ -1,0 +1,24 @@
+<h1>Create a Meetup</h1>
+
+<!-- FIX FORM -->
+<form action="/" method="post">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="meetup[name]" value="<%= new_meetup.name %>" required>
+  </div>
+
+  <div>
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="meetup[description]" value="<%= new_meetup.description %>" required>
+  </div>
+
+  <div>
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="meetup[location]" value="<%= new_meetup.location %>" required>
+  </div>
+
+  <input type="submit" value="Add Meetup">
+</form>
+
+
+<a href="/">Home</a>

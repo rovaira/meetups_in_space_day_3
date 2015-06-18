@@ -1,0 +1,15 @@
+<h1> <%= this_meetup.name %> </h1>
+<h3> Description: <%= this_meetup.description %> </h3>
+<h3> Location: <%= this_meetup.location %> </h3>
+
+<h3> Attendees: </h3>
+<ul>
+  <% this_membership.each do |member| %>
+  <li><%= member.user.username %> <img src="<%= member.user.avatar_url %>"></li>
+  <% end %>
+</ul>
+
+<a href = '/'> Home </a>
+<form action="/meetup/:id" method="post">
+  <button type="submit" name="join" value="join"><div id="join_meetup">Join Meetup</div></button>
+</form>
