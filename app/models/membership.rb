@@ -4,4 +4,5 @@ class Membership < ActiveRecord::Base
 
   validates :user, presence: true
   validates :meetup, presence: true
+
 end

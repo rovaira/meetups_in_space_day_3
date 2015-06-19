@@ -1,7 +1,9 @@
 <h1> <%= this_meetup.name %> </h1>
-<h3> Description: <%= this_meetup.description %> </h3>
-<h3> Location: <%= this_meetup.location %> </h3>
+<h3> Description: </h3>
+<div id="entry_text"> <%= this_meetup.description %> </div>
 
+<h3> Location: </h3>
+<div id="entry_text"> <%= this_meetup.location %> </div>
 <h3> Attendees: </h3>
 <ul>
   <% this_membership.each do |member| %>
@@ -10,7 +12,12 @@
 </ul>
 
 <form action="/meetup/:id" method="post">
-  <button type="submit" name="join" value="join"><div id="join_meetup">Join Meetup</div></button>
+  <button type="submit" name="join" value="join"><div id="meetup_button">Join Meetup</div></button>
+</form>
+<br>
+
+<form action="/meetup/:id" method="post">
+  <button type="submit" name="_method" value="delete"><div id="meetup_button">Leave Meetup</div></button>
 </form>
 <br>
 <a href = '/'> Home </a>

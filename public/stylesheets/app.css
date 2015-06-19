@@ -47,6 +47,10 @@ input {
   color: black;
 }
 
-#join_meetup {
+#meetup_button {
   color: black;
+}
+
+#entry_text {
+  color: #3399FF;
 }

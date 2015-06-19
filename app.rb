@@ -47,8 +47,20 @@ def form_error
   redirect '/create'
 end
 
+def already_member
+  flash[:notice] = "You're already a member!"
+end
+
 def successful_join
   flash[:notice] = "You successfully joined a meetup!"
+end
+
+def join_first
+  flash[:notice] = "You must join a meetup first before you can choose to leave!"
+end
+
+def successful_leave
+  flash[:notice] = "You successfully left the meetup!"
 end
 
 # -- CREATED REQUESTS -- #
@@ -89,13 +101,35 @@ post '/' do
 end
 
 post '/meetup/:id' do
-  if signed_in?
+  authenticate!
+
+  current_member_search = Membership.find_by(user: current_user, meetup_id: session[:meetup_id])
+
+  if current_member_search
+    already_member
+    redirect "/meetup/#{current_member_search.meetup_id}"
+  else
     new_membership = Membership.create(user_id: current_user.id, meetup_id: session[:meetup_id])
     successful_join
     redirect "/meetup/#{new_membership.meetup_id}"
-  else
-    authenticate!
   end
+
+end
+
+delete '/meetup/:id' do
+  authenticate!
+
+  current_membership = Membership.find_by(user: current_user, meetup: session[:meetup_id])
+
+  if current_membership.nil?
+    join_first
+    redirect '/'
+  elsif current_membership.meetup_id.to_s == session[:meetup_id]
+    current_membership.delete
+    successful_leave
+    redirect "/meetup/#{current_membership.meetup_id}"
+  end
+
 end
 
 # -- END CREATED REQUESTS -- #
