@@ -60,11 +60,11 @@ end
 
 get '/meetup/:id' do
   this_meetup = Meetup.find(params[:id])
-  # Extra challenge: view membership of meetup
   session[:meetup_id] = params[:id]
 
+  # Extra challenge: view membership of meetup
   this_membership = Membership.where(meetup: this_meetup).find_each
-  # binding.pry
+
   erb :show, locals: { this_meetup: this_meetup, this_membership: this_membership }
 end
 

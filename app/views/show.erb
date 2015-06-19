@@ -5,11 +5,12 @@
 <h3> Attendees: </h3>
 <ul>
   <% this_membership.each do |member| %>
-  <li><%= member.user.username %> <img src="<%= member.user.avatar_url %>"></li>
+  <li><%= member.user.username %> <br> <img src="<%= member.user.avatar_url %>" width="135" height="165"></li>
   <% end %>
 </ul>
 
-<a href = '/'> Home </a>
 <form action="/meetup/:id" method="post">
   <button type="submit" name="join" value="join"><div id="join_meetup">Join Meetup</div></button>
 </form>
+<br>
+<a href = '/'> Home </a>
